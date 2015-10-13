@@ -31,18 +31,16 @@
             }
         };
         alert(object.getNameFunc()());
-
         var object2 ={
             name : "My Object",
             getNameFunc : function() {
-                var that = this;
+                var that = this; //to store the local variable in memory
                 return function () {
                     return that.name;
                 };
             }
         };
         alert(object2.getNameFunc()());
-
     </script>
 </head>
 <body>

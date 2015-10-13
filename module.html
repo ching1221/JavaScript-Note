@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        //bad, variables polution
+        var _count = 0;
+        function addCount(){ _count+=1;}
+        function getCount(){}
+
+        //good. modulation
+        var module_ex = (function(){
+            var _count = 0;
+            var addCount = function(){
+                _count += 1;
+            };
+            var getCount = function(){
+                return _count;
+            };
+            return{
+                addCount : addCount,
+                getCount : getCount
+            };
+        })();
+        module_ex.addCount();
+        alert(module_ex.getCount());
+        //augmentation, to extend
+        var module_ex = (function(mod){
+            mod.f3 = function(){
+                //some function
+            };
+            return mod;
+        })(module_ex);
+
+        //Loose augmentation, if we do not know which module will be loaded first
+        var module_ex = (function(mod){
+            mod.f3 = function(){};
+            return mod;
+        })(window.module_ex || {});
+        //when the module relies on other modules, like jQuery
+        var module_ex2 = (function ($, YAHOO) {
+            // now have access to globals jQuery (as $) and YAHOO in this code
+        }(jQuery, YAHOO));
+
+    </script>
+</head>
+<body>
+</body>
+</html>
