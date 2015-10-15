@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/html" id="test">
+<h1>{{title}}</h1>
+    <ul>
+        {{each list as value i}}
+            <li>索引{{i+1}} : {{value}}</li>
+        {{/each}}
+    </ul>
+</script>
+<script src="js/require.js" data-main="js/template-main"></script>
+</body>
+</html>
