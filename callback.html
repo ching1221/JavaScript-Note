@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div class="head">
+
+</div>
+<!-- the way using jquery and publish/subscribe-->
+<script src="js/require.js" data-main="js/main.callback">
+</script>
+<script type="text/javascript">
+    // a very easy way to write callback
+    // if f1 will cost much time to run
+    function f1(callback){
+        setTimeout(function(){
+            alert("hey");
+            callback();
+        }, 300);
+    }
+    // f2 is the callback for f1
+    function f2(){
+        alert("callback");
+    }
+    f1(f2);
+</script>
+</body>
+</html>
